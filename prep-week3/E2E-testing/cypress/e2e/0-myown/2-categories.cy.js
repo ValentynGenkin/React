@@ -52,6 +52,17 @@ describe('Categories', () => {
      * We will give you a couple of steps here, this does not mean that every step is 1 line of code!
      */
     // 1. Check that no category is selected
+    cy.get('[data-testid="categories-list"]').within(() => {
+      cy.get('[data-testid="category-item"]').should('have.length', 4);
+
+      cy.get('[data-selected="false"]').should('have.length', 4);
+
+      cy.get('[data-elementid="electronics"]').click();
+
+      cy.get('[data-selected="true"]').should('have.length', 1);
+
+      cy.get('[data-selected="false"]').should('have.length', 3);
+    });
     // 2. Click a category
     // 3. Check that that category is selected
     // 4. Click a different category
