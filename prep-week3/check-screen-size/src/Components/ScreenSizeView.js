@@ -6,7 +6,7 @@ const ScreenSizeView = () => {
   return (
     <div>
       <div>Height : {height} px </div>
-      <div>Width: {width} px </div>
+      <div>Width : {width} px </div>
       <button
         onClick={() => {
           window.location.reload();
