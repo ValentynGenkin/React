@@ -1,6 +1,6 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent } from '@testing-library/react';
 
-import UserDetailsForm from "./2-UserDetailsForm";
+import UserDetailsForm from './2-UserDetailsForm';
 
 /**
  * UserDetailsForm is a component that has some user interaction so is a little more complex.
@@ -12,28 +12,35 @@ import UserDetailsForm from "./2-UserDetailsForm";
  */
 
 const testUser = {
-  firstName: "John",
-  lastName: "Doe",
-  role: "Admin",
+  firstName: 'John',
+  lastName: 'Doe',
+  role: 'Admin',
 };
 const changedUser = {
-  firstName: "Mary",
-  lastName: "Williams",
-  role: "User",
+  firstName: 'Mary',
+  lastName: 'Williams',
+  role: 'User',
 };
 
-describe("UserDetailsForm", () => {
-  it("Correctly fills in the initial values", () => {
+describe('UserDetailsForm', () => {
+  it('Correctly fills in the initial values', () => {
+    render(<UserDetailsForm initialUserValues={testUser} />);
+
+    expect(screen.getByLabelText('First name:')).toHaveValue(
+      testUser.firstName,
+    );
+    expect(screen.getByLabelText('Last name:')).toHaveValue(testUser.lastName);
+    expect(screen.getByLabelText('Role:')).toHaveValue(testUser.role);
+
+    // TODO: Fill in!
+  });
+
+  it('Correctly changes a fields value', () => {
     // TODO: Fill in!
     expect(true).toBe(false);
   });
 
-  it("Correctly changes a fields value", () => {
-    // TODO: Fill in!
-    expect(true).toBe(false);
-  });
-
-  it("Submits the right values to the onSubmit function", () => {
+  it('Submits the right values to the onSubmit function', () => {
     // TODO: Fill in!
     // TIP: You will need to mock the onSubmit function prop so you can check that it was called and what it was called with! Have a look at `jest.fn`
     expect(true).toBe(false);
